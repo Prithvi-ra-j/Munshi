@@ -278,7 +278,7 @@ uvicorn app.main:app --reload
 
 ---
 
-## 🌍 Environment Variables
+##  Environment Variables
 
 | Variable | Description |
 |---|---|
