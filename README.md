@@ -250,7 +250,7 @@ Configure WAHA to POST to `http://your-host:8000/webhook` for the `message` even
 
 ---
 
-## 🛠️ Detailed Setup & Tracing Guide
+##  Detailed Setup & Tracing Guide
 
 ### 1. LangSmith Tracing (Observability)
 To see Munshi's internal thoughts and agent traces:
