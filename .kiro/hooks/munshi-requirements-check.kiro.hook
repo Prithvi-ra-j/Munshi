@@ -1,0 +1,16 @@
+{
+  "enabled": true,
+  "name": "Auto-update requirements.txt",
+  "description": "When any .py file in app/ is saved, checks if new imports are used that aren't in requirements.txt and flags them.",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "app/**/*.py"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "A Python file in app/ was just saved. Check if any imports in the changed file are missing from requirements.txt. If any are missing, add them with appropriate version pins."
+  }
+}

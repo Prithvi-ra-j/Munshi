@@ -1,0 +1,17 @@
+{
+  "enabled": true,
+  "name": "Type hint check",
+  "description": "When any .py file is saved, verifies all function signatures have type hints and flags any that don't.",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "app/**/*.py",
+      "eval/**/*.py"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "A Python file was just saved. Check all function definitions in the file — verify every parameter and return value has a type hint. Flag any functions missing type hints."
+  }
+}

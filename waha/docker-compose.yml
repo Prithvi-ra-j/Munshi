@@ -1,0 +1,34 @@
+services:
+  waha:
+    image: devlikeapro/waha:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - WHATSAPP_DEFAULT_ENGINE=NOWEB
+      - WHATSAPP_HOOK_URL=http://host.docker.internal:8000/webhook
+      - WHATSAPP_HOOK_EVENTS=message
+      - WHATSAPP_API_KEY=munshi-secret
+      - WAHA_DASHBOARD_USERNAME=admin
+      - WAHA_DASHBOARD_PASSWORD=munshi123
+      - WHATSAPP_DEFAULT_SESSION=default
+    volumes:
+      - waha_sessions:/app/.sessions
+    restart: unless-stopped
+
+  munshi:
+    build: ..
+    ports:
+      - "8000:8000"
+    environment:
+      - WAHA_API_URL=http://waha:3000
+    env_file:
+      - ../.env
+    depends_on:
+      - waha
+    volumes:
+      - ../munshi.db:/app/munshi.db
+      - ../chroma_db:/app/chroma_db
+    restart: unless-stopped
+
+volumes:
+  waha_sessions:

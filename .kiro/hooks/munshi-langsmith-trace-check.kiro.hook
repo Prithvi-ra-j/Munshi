@@ -1,0 +1,16 @@
+{
+  "enabled": true,
+  "name": "Remind about LangSmith tracing",
+  "description": "When any file in app/agents/ is saved, checks that every function calling llm_client has a LangSmith @traceable decorator.",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "app/agents/*.py"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "A file in app/agents/ was just saved. Check if every function that calls llm_client (call_llm or transcribe_audio) has a LangSmith @traceable decorator. If any are missing the decorator, flag them clearly."
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "enabled": true,
+  "name": "Env variable check",
+  "description": "When .env.example is modified, verifies all variables defined in it are referenced somewhere in the codebase.",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      ".env.example"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": ".env.example was just modified. For each variable defined in .env.example, verify it is referenced somewhere in the app/ source code via os.getenv(). List any variables that are defined in .env.example but not used in the code."
+  }
+}

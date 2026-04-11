@@ -1,0 +1,28 @@
+# Secrets
+.env
+*.db
+*.sqlite
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+env/
+venv/
+.venv/
+.pytest_cache/
+
+# Databases & Persistence
+chroma_db/
+checkpoints.sqlite
+
+# Media & Temp
+qr.png
+
+# IDEs
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

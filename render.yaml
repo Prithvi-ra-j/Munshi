@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: munshi
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: LANGSMITH_API_KEY
+        sync: false
+      - key: LANGSMITH_PROJECT
+        value: munshi-prod
+      - key: WAHA_API_URL
+        sync: false
+      - key: WAHA_SESSION
+        value: munshi
+      - key: DATABASE_URL
+        value: sqlite:///./munshi.db
+      - key: CHROMA_PERSIST_DIR
+        value: ./chroma_db
+    disk:
+      name: munshi-data
+      mountPath: /app
+      sizeGB: 1

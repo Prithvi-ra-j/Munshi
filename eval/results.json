@@ -1,0 +1,7 @@
+{
+  "intent_accuracy": 0.0,
+  "entity_precision": 0.554,
+  "p50_latency_ms": 4227.9,
+  "p95_latency_ms": 5541.6,
+  "total_messages": 65
+}
